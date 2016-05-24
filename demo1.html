@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div id="container"></div>
+<script>
+    var Greet=React.createClass({
+        render:function(){
+            return React.DOM.p(null, this.props.name);
+        }
+    });
+    var aaa = React.createFactory(Greet);
+    ReactDOM.render(
+            aaa({name:'qeqwe'}),
+            document.getElementById('container')
+    );
+</script>
+</body>
+</html>
