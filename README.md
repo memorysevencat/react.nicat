@@ -9,5 +9,5 @@
 
 ###### http://ant.design/components/pagination/
 
-<script src="https://unpkg.com/react@15.3.1/dist/react.min.js"></script>
-<script src="https://unpkg.com/react-dom@15.3.1/dist/react-dom.min.js"></script>
+unpkg.com/react@15.3.1/dist/react.min.js
+unpkg.com/react-dom@15.3.1/dist/react-dom.min.js
