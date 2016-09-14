@@ -8,3 +8,6 @@
 ###### http://www.zhihu.com/question/41312576?sort=created&page=2
 
 ###### http://ant.design/components/pagination/
+
+<script src="https://unpkg.com/react@15.3.1/dist/react.min.js"></script>
+<script src="https://unpkg.com/react-dom@15.3.1/dist/react-dom.min.js"></script>
