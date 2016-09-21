@@ -1,6 +1,6 @@
  var data='abcdefg'
  var MyTitle=React.createClass({
-     propTYpes:{
+     propTypes:{
          title:React.PropTypes.string.isRequired
      },
      render:function(){

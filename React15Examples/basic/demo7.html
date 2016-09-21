@@ -9,27 +9,22 @@
 <body>
 	<div id="container"></div>
 	<script type="text/babel">
-		class LinkButton extends React.Component{
-			constructor(){
-				super();
-				this.state={
-					liked:false
-				};
-			}
+		class MyComponent extends React.Component
+		{
 			handleClick(){
-				this.setState({liked:!this.state.liked});
+				this.refs.myTextInput.focus();
 			}
 			render(){
-				const text=this.state.liked?'liked':'have not liked';
 				return (
-					<div onClick={()=>this.handleClick()}>
-					You {text} this.Click to toggle.
+					<div>
+						<input type="text" ref="myTextInput"/>
+						<input type="button" value="focus the text input" onClick={()=>this.handleClick()}/>
 					</div>
 				);
 			}
 		}
 		ReactDOM.render(
-			<LinkButton />,
+			<MyComponent />,
 			document.getElementById('container')
 		)
 	</script>

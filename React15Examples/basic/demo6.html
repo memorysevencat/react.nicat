@@ -9,27 +9,18 @@
 <body>
 	<div id="container"></div>
 	<script type="text/babel">
-		class LinkButton extends React.Component{
-			constructor(){
-				super();
-				this.state={
-					liked:false
-				};
-			}
-			handleClick(){
-				this.setState({liked:!this.state.liked});
+		var data='test'
+		class MyTitle extends React.Component
+		{
+			proTypes(){
+				this.title=React.ProTypes.string.isRequired
 			}
 			render(){
-				const text=this.state.liked?'liked':'have not liked';
-				return (
-					<div onClick={()=>this.handleClick()}>
-					You {text} this.Click to toggle.
-					</div>
-				);
+				return <h1>{this.props.title}</h1>
 			}
-		}
+		} 
 		ReactDOM.render(
-			<LinkButton />,
+			<MyTitle title={data}/>,
 			document.getElementById('container')
 		)
 	</script>

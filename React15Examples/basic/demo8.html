@@ -9,27 +9,27 @@
 <body>
 	<div id="container"></div>
 	<script type="text/babel">
-		class LinkButton extends React.Component{
+		class ClickContent extends React.Component{
 			constructor(){
 				super();
 				this.state={
 					liked:false
-				};
+				}
 			}
 			handleClick(){
-				this.setState({liked:!this.state.liked});
+				this.setState({liked:!this.state.liked})
 			}
 			render(){
-				const text=this.state.liked?'liked':'have not liked';
+				const text=this.state.liked?'liked':'havenot liked'
 				return (
-					<div onClick={()=>this.handleClick()}>
-					You {text} this.Click to toggle.
-					</div>
-				);
+					<p onClick={()=>this.handleClick()}>
+						{text}
+					</p>
+				)
 			}
 		}
 		ReactDOM.render(
-			<LinkButton />,
+			<ClickContent />,
 			document.getElementById('container')
 		)
 	</script>
