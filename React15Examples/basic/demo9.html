@@ -1,0 +1,40 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="https://unpkg.com/react@15.3.1/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.1/dist/react-dom.min.js"></script>
+    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+</head>
+<body>
+	<div id="container"></div>
+	<script type="text/babel">
+		class Input extends React.Component
+		{
+			constructor(){
+				super();
+				this.state={
+					value:'hello'
+				}
+				this.handleChange = this.handleChange.bind(this);
+			}
+			handleChange(){
+				this.setState({value:event.target.value})
+			}
+			render(){
+				const value=this.state.value;
+				return (
+					<div>
+						<input type="text" value={value} onChange={this.handleChange}/>
+						<p>{value}</p>
+					</div>
+				);
+			}
+		}
+		ReactDOM.render(
+			<Input/>,
+			document.getElementById('container')
+		)
+	</script>
+</body>
+</html>
