@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title></title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="/Templates/master/wap/default/script/fastclick.js"></script>
+    <script src="http://cdn.bootcss.com/fastclick/1.0.6/fastclick.js"></script>
+    <script type="application/javascript">
+        $(function () {
+            FastClick.attach(document.body);
+        });
+    </script>
 </head>
 <body>
-    <div class='xiu_pay' id='xiu_pay'>
-    </div>
+<div class='xiu_pay' id='xiu_pay'>
+</div>
 <div class='xiu_txt'></div>
 <style>
     html {
@@ -24,7 +30,6 @@
         0%, 100% {
             transform: scale(1.1);
         }
-
         50% {
             transform: scale(1.3);
         }
@@ -34,12 +39,10 @@
         0% {
             transform: scale(1.1);
         }
-
         50% {
             transform: scale(5);
             opacity: 0;
         }
-
         100% {
             transform: scale(1.1);
             opacity: 0;
@@ -93,39 +96,59 @@
         color: RGBA(102, 153, 153, 1);
     }
 </style>
-    <script type="application/javascript">
-        window.addEventListener('load', function () {
-            FastClick.attach(document.body);
-        }, false);
-    </script>
+
 <script type="text/javascript">
-    var audio = new Audio("http://up.izyfarm.com/music2.mp3");
-    var go = true;
-    $('#xiu_pay').click(function () {
-        if (go) {
-            audio.play();
-            var arr = ['咻咻大神，请赐予我力量吧', '世界那么大，我想咻一咻', '世界那么大，我想咻一咻', '憋说话，咻我', '一起扭着咻一咻！扭着！扭着！', '咻咻咻咻，鸡鸭鱼肉', '福来了醉，福来了喜天降', '', '别急，深呼吸三秒，给运气充个值', '左手再来一个慢动作，咻着', '重要的事说三遍：咻我，咻我，咻我', '换个姿势继续咻一咻', '红包哪里逃', '像咻街机一样咻你手机', '让我们红尘作伴，咻得潇潇洒洒', '咻得太腻害了，快快收下我的膝盖', '你不是一个人在咻嘛', '这个咻姿势我给满分', '耶耶切克闹，福气红包来一套', '五魁首，六六六，咻个福气一起走', '有钱有福，猴嗨森', '满园春色关不住，福气红包咻出来', '艾玛，红包咋还不来呢', '世界那么大，我想咻一咻', '福来了美，福来了浪啊~', '咻咻咻咻，福气满堂', '福来了肥，福来了烫啊', '感情深一口气，哥俩好分福气', '大王派我来拜年嘞，咻咻咻咻'];
-            var length = arr.length;
+
+    var i = 0;
+    var circle = true;
+    var arr = ['咻咻大神，请赐予我力量吧', '世界那么大，我想咻一咻', '世界那么大，我想咻一咻', '憋说话，咻我', '一起扭着咻一咻！扭着！扭着！', '咻咻咻咻，鸡鸭鱼肉', '福来了醉，福来了喜天降', '', '别急，深呼吸三秒，给运气充个值', '左手再来一个慢动作，咻着', '重要的事说三遍：咻我，咻我，咻我', '换个姿势继续咻一咻', '红包哪里逃', '像咻街机一样咻你手机', '让我们红尘作伴，咻得潇潇洒洒', '咻得太腻害了，快快收下我的膝盖', '你不是一个人在咻嘛', '这个咻姿势我给满分', '耶耶切克闹，福气红包来一套', '五魁首，六六六，咻个福气一起走', '有钱有福，猴嗨森', '满园春色关不住，福气红包咻出来', '艾玛，红包咋还不来呢', '世界那么大，我想咻一咻', '福来了美，福来了浪啊~', '咻咻咻咻，福气满堂', '福来了肥，福来了烫啊', '感情深一口气，哥俩好分福气', '大王派我来拜年嘞，咻咻咻咻'];
+    var length = arr.length;
+    function func_main(_x, _this, _circle) {
+        function _func() {
+            if (_x === 1) {
+                $('.xiu_txt').html('   正在寻宝中...');
+            }
+            _x = null;
+            var audio_temp = new Audio("http://up.izyfarm.com/music2.mp3");
+            audio_temp.play();
+            audio_temp = null;
             var txt = arr[Math.floor(Math.random() * length + 1)];
-            $('.xiu_txt').html('   正在寻宝中...');
-            $(this).addClass('scale').css('transform', 'scale(1.1)');
-            setTimeout(function () {
-                $('.xiu_pay').css({ 'transform': 'scale(1)' });
-            }, 300);
-            setTimeout(function () {
-                go = true;
-                $('.xiu_pay').removeClass('scale');
-                $('.xiu_txt').html(txt);
-                if ($('.xiu_txt').html() !== '   正在寻宝中...') {
-                    setTimeout(function () { $('.xiu_txt').html(''); }, 700);
-                }
-                if (txt === "") {
-                    //alert('你中大奖了')
-                }
-            }, 1000);
-            go = false;
+            $('.xiu_txt').html(txt);
+            txt = null;
+            if ($('.xiu_txt').html() !== '   正在寻宝中...') {
+
+                setTimeout(function () {
+                    $('.xiu_txt').html('');
+
+                }, 3000);
+            }
         }
+
+        return _func;
+    }
+    $('#xiu_pay').click(function () {
+        i++;
+        if (i === 1) {
+            $('#xiu_pay').addClass('scale').css('transform', 'scale(1.2)');
+            a();
+            b();
+        }
+        setTimeout(func_main(i, $(this), circle), 0);
     });
+    function a() {
+
+
+        $('#xiu_pay').addClass('scale').css('transform', 'scale(1)');
+
+        setTimeout(a, 500);
+    }
+    function b() {
+
+
+        $('#xiu_pay').removeClass('scale').css('transform', 'scale(1)');
+
+        setTimeout(b, 1000);
+    }
 </script>
 </body>
 </html>
