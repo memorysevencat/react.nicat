@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/Templates/master/wap/default/script/fastclick.js"></script>
+</head>
+<body>
+    <div class='xiu_pay' id='xiu_pay'>
+    </div>
+<div class='xiu_txt'></div>
+<style>
+    html {
+        background-color: RGBA(51, 51, 51, 1);
+        webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+    }
+
+    @keyframes scale {
+        0%, 100% {
+            transform: scale(1.1);
+        }
+
+        50% {
+            transform: scale(1.3);
+        }
+    }
+
+    @keyframes scale2 {
+        0% {
+            transform: scale(1.1);
+        }
+
+        50% {
+            transform: scale(5);
+            opacity: 0;
+        }
+
+        100% {
+            transform: scale(1.1);
+            opacity: 0;
+        }
+    }
+
+    .xiu_pay {
+        width: 50px;
+        height: 50px;
+        background: rgba(0, 153, 255, 1);
+        border-radius: 50%;
+        margin: 0 auto;
+        position: relative;
+        margin-top: 250px;
+        transition: all .5s;
+    }
+
+    .xiu_pay:before {
+        position: absolute;
+        content: '';
+        width: 120%;
+        height: 120%;
+        box-shadow: inset 0 0 5px 2px rgba(51, 204, 255, .3);
+        border-radius: 50%;
+        transform: scale(1.1);
+        border: 1px solid rgba(51, 204, 255, .3);
+        top: -6px;
+        left: -6px;
+        animation: scale 2s infinite;
+    }
+
+    .xiu_pay.scale:before {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        box-shadow: inset 0 0 5px 2px rgba(51, 204, 255, .3);
+        border-radius: 50%;
+        transform: scale(1.1);
+        border: 1px solid rgba(51, 204, 255, .3);
+        top: -1px;
+        left: -1px;
+        animation: scale2 3s;
+    }
+
+    .xiu_txt {
+        font-weight: 500;
+        margin-top: 50px;
+        height: 30px;
+        text-align: center;
+        color: RGBA(102, 153, 153, 1);
+    }
+</style>
+    <script type="application/javascript">
+        window.addEventListener('load', function () {
+            FastClick.attach(document.body);
+        }, false);
+    </script>
+<script type="text/javascript">
+    var audio = new Audio("http://up.izyfarm.com/music2.mp3");
+    var go = true;
+    $('#xiu_pay').click(function () {
+        if (go) {
+            audio.play();
+            var arr = ['咻咻大神，请赐予我力量吧', '世界那么大，我想咻一咻', '世界那么大，我想咻一咻', '憋说话，咻我', '一起扭着咻一咻！扭着！扭着！', '咻咻咻咻，鸡鸭鱼肉', '福来了醉，福来了喜天降', '', '别急，深呼吸三秒，给运气充个值', '左手再来一个慢动作，咻着', '重要的事说三遍：咻我，咻我，咻我', '换个姿势继续咻一咻', '红包哪里逃', '像咻街机一样咻你手机', '让我们红尘作伴，咻得潇潇洒洒', '咻得太腻害了，快快收下我的膝盖', '你不是一个人在咻嘛', '这个咻姿势我给满分', '耶耶切克闹，福气红包来一套', '五魁首，六六六，咻个福气一起走', '有钱有福，猴嗨森', '满园春色关不住，福气红包咻出来', '艾玛，红包咋还不来呢', '世界那么大，我想咻一咻', '福来了美，福来了浪啊~', '咻咻咻咻，福气满堂', '福来了肥，福来了烫啊', '感情深一口气，哥俩好分福气', '大王派我来拜年嘞，咻咻咻咻'];
+            var length = arr.length;
+            var txt = arr[Math.floor(Math.random() * length + 1)];
+            $('.xiu_txt').html('   正在寻宝中...');
+            $(this).addClass('scale').css('transform', 'scale(1.1)');
+            setTimeout(function () {
+                $('.xiu_pay').css({ 'transform': 'scale(1)' });
+            }, 300);
+            setTimeout(function () {
+                go = true;
+                $('.xiu_pay').removeClass('scale');
+                $('.xiu_txt').html(txt);
+                if ($('.xiu_txt').html() !== '   正在寻宝中...') {
+                    setTimeout(function () { $('.xiu_txt').html(''); }, 700);
+                }
+                if (txt === "") {
+                    //alert('你中大奖了')
+                }
+            }, 1000);
+            go = false;
+        }
+    });
+</script>
+</body>
+</html>
