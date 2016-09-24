@@ -1,35 +1,25 @@
 <!DOCTYPE html>
-<html lang="zh-CN" style="background: RGBA(51, 51, 51, 1);webkit-transform: translate3d(0, 0, 0);-moz-transform: translate3d(0, 0, 0);-ms-transform: translate3d(0, 0, 0);-o-transform: translate3d(0, 0, 0);">
+<html lang="zh-CN"
+      style="background: RGBA(51, 51, 51, 1);webkit-transform: translate3d(0, 0, 0);-moz-transform: translate3d(0, 0, 0);-ms-transform: translate3d(0, 0, 0);-o-transform: translate3d(0, 0, 0);">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>biubiubiu~</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/fastclick/1.0.6/fastclick.js"></script>
-    <link href="http://cdn.bootcss.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css"></link>
-    <script type="application/javascript">
+    <script>
         $(function () {
-            FastClick.attach(document.body);
-            $("#img1").css({'height': $(window).height()-1, 'width': $(window).width()});
+            window.addEventListener('load', function () {
+                FastClick.attach(document.body);
+            }, false);
+            $("#img1").css({'height': $(window).height() - 1, 'width': $(window).width()});
             $("#posi").css('left', ($(window).width() - 70) / 2 + 'px');
-            if($(window).height()>680)
-            {
-                $("#posi").css('bottom','270px');
+            if ($(window).height() > 680) {
+                $("#posi").css('bottom', '270px');
             }
 
         });
     </script>
-</head>
-<!-- style="background-size: 100% 100%; -o-background-size: 100% 100%;-moz-background-size: 100% 100%; -webkit-background-size: 100% 100%;background-image: url('http://up.izyfarm.com/izyfarm_biu.png');background-position: center 100%;background-repeat: no-repeat;-webkit-background-size:cover;background-size:cover;"-->
-<body style="margin:0 auto; overflow: hidden;">
-    <div class="container-fluid">
-        <img id="img1" src="http://up.izyfarm.com/izyfarm_biu.png" style="z-index:-1" />
-        <div style="position:absolute;bottom:200px;left:100px;" id="posi">
-            <div class='xiu_pay'>
-                <img src="http://up.izyfarm.com/izyfarm_biu_3.png" width="70px" height="70px" id='xiu_pay' onclick="javascript:alert(1);" />
-            </div>
-        </div>
-    </div>
     <style>
         @keyframes scale {
             0%, 100% {
@@ -57,75 +47,102 @@
             }
         }
 
-        .xiu_pay {
+        .biu_pay {
             width: 70px;
             height: 70px;
             border-radius: 50%;
             margin: 0 auto;
             position: relative;
-            margin-top: 250px;
+            /*margin-top: 250px;*/
             transition: all .5s;
         }
 
-            .xiu_pay:before {
-                position: absolute;
-                content: '';
-                width: 120%;
-                height: 120%;
-                box-shadow: inset 0 0 5px 2px rgba(255,204,51, .3);
-                border-radius: 50%;
-                transform: scale(1.1);
-                border: 1px solid rgba(255,204,51, .3);
-                top: -8px;
-                left: -8px;
-                animation: scale 2s infinite;
-            }
+        .biu_pay:before {
+            position: absolute;
+            content: '';
+            width: 120%;
+            height: 120%;
+            box-shadow: inset 0 0 5px 2px rgba(255, 204, 51, .3);
+            border-radius: 50%;
+            transform: scale(1.1);
+            border: 1px solid rgba(255, 204, 51, .3);
+            top: -8px;
+            left: -8px;
+            animation: scale 2s infinite;
+        }
 
-            .xiu_pay.scale:before {
-                position: absolute;
-                content: '';
-                width: 100%;
-                height: 100%;
-                box-shadow: inset 0 0 5px 2px rgba(255,204,51, .3);
-                border-radius: 50%;
-                transform: scale(1.1);
-                border: 1px solid rgba(255,204,51, .3);
-                top: -1px;
-                left: -1px;
-                animation: scale 3s;
-            }
+        .biu_pay.scale:before {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 5px 2px rgba(255, 204, 51, .3);
+            border-radius: 50%;
+            transform: scale(1.1);
+            border: 1px solid rgba(255, 204, 51, .3);
+            top: -1px;
+            left: -1px;
+            animation: scale 3s;
+        }
 
-        .xiu_txt {
+        #biu_txt {
             font-weight: 500;
             margin-top: 50px;
+            margin-left: -100px;
             height: 30px;
+            width: 300px;
             text-align: center;
-            color: RGBA(102, 153, 153, 1);
+            color: #fff;
         }
     </style>
-    <script type="text/javascript">
-        var i = 0;
-        var circle = true;
-        var arr = ['biubiu大神，请赐予我力量吧', '世界那么大，我想biu一biu', '世界那么大，我想biu一biu', '憋说话，biu我', '一起扭着biu一biu！扭着！扭着！', 'biubiubiu，鸡鸭鹅狗猫', '福来了，福来了喜天降', '', '别急，深呼吸三秒，给运气充个值', '左手再来一个慢动作，biubiubiu~', '重要的事说三遍：biu，biubiu，biubiubiu', '换个姿势继续biu~', '红包哪里逃，biu~', '让我们红尘作伴，biu得潇潇洒洒', 'biu得太腻害了，快快收下我的膝盖', '你不是一个人在biu嘛', '这个biu姿势我给满分', '耶耶切克闹，福气红包来一套', '五魁首，六六六，biu个福气一起走', '有钱有福，猴嗨森', '满园春色关不住，福气红包biu出来', '艾玛，红包咋还不来呢', '世界那么大，我想biu一biu', '福来了美，福来了浪啊~', 'biubiubiu~福气满堂', '福来了肥，福来了烫啊', '感情深一口气，哥俩好分福气', '大王派我来拜年嘞，biubiubiu'];
-        var length = arr.length;
-        function func_main(_x, _this, _circle) {
-            function _func() {
-                _x = null;
-                var audio_temp = new Audio("http://up.izyfarm.com/music5.mp3");
-                audio_temp.play();
-                audio_temp = null;
+</head>
+<body style="margin:0 auto; overflow: hidden;">
+<div class="container-fluid">
+    <img id="img1" src="http://up.izyfarm.com/izyfarm_biu.png" style="z-index:-1"/>
+
+    <div style="position:absolute;bottom:200px;left:100px;width:70px;height:70px;" id="posi">
+        <div class='biu_pay'>
+            <img src="http://up.izyfarm.com/izyfarm_biu_3.png" width="70px" height="70px"/>
+        </div>
+        <div id="biu_txt"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    var i = 0;
+    var arr = ['biubiu大神，请赐予我力量吧', '世界那么大，我想biu一biu', '世界那么大，我想biu一biu', '憋说话，biu我', '一起扭着biu一biu！扭着！扭着！', 'biubiubiu，鸡鸭鹅狗猫', '福来了，福来了喜天降', '', '别急，深呼吸三秒，给运气充个值', '左手再来一个慢动作，biubiubiu~', '重要的事说三遍：biubiubiu', '换个姿势继续biu~', '红包哪里逃，biu~', '让我们红尘作伴，biu得潇潇洒洒', 'biu得太腻害了，快快收下我的膝盖', '你不是一个人在biu嘛', '这个biu姿势我给满分', '耶耶切克闹，福气红包来一套', '五魁首，六六六，biu个福气一起走', '有钱有福，猴嗨森', '满园春色关不住，福气红包biu出来', '艾玛，红包咋还不来呢', '世界那么大，我想biu一biu', '福来了美，福来了浪啊~', 'biubiubiu~福气满堂', '福来了肥，福来了烫啊', '感情深一口气，哥俩好分福气', '大王派我来拜年嘞，biubiubiu'];
+    var length = arr.length;
+    function func_main(_x, _this) {
+        function _func() {
+            _x = null;
+            var temp_audio = new Audio("http://up.izyfarm.com/music5.mp3");
+            temp_audio.play();
+            temp_audio = null;
+            var num = getNumberInNormalDistribution(100, 10);
+            if (num >= 85 && num <= 105) {
                 var txt = arr[Math.floor(Math.random() * length + 1)];
-
+                $("#biu_txt").html(txt);
                 txt = null;
-
             }
+            num = null;
+        }
 
-            return _func;
+        return _func;
+    }
+    function getNumberInNormalDistribution(mean, std_dev) {
+        return parseInt(mean + (uniform2NormalDistribution() * std_dev));
+    }
+
+    function uniform2NormalDistribution() {
+        var sum = 0.0;
+        for (var i = 0; i < 12; i++) {
+            sum = sum + Math.random();
         }
-        function z() {
-            i++;
-            setTimeout(func_main(i, $(this), circle), 0);
-        }
-    </script>
+        return sum - 6.0;
+    }
+    $("#posi").click(function () {
+        i++;
+        setTimeout(func_main(i, $(this)), 0);
+    });
+</script>
 </body>
 </html>
