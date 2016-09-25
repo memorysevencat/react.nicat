@@ -100,11 +100,11 @@
 </head>
 <body style="margin:0 auto; overflow:hidden;-moz-user-select:none;">
 <div class="container-fluid">
-    <img id="img1" src="http://up.izyfarm.com/izyfarm_biu.png" style="z-index:-1"/>
+    <img id="img1" src="../izyfarm_biu.png" style="z-index:-1"/>
 
     <div style="position:absolute;bottom:200px;left:100px;width:70px;height:70px;" id="posi">
         <div class='biu_pay' id="biu_pay">
-            <img src="http://up.izyfarm.com/izyfarm_biu_3.png" width="70px" height="70px"/>
+            <img src="../izyfarm_biu_3.png" width="70px" height="70px"/>
         </div>
         <div id="biu_txt"></div>
     </div>
@@ -112,80 +112,77 @@
 <script type="text/javascript">
     var i = 0;
     const biuv = $("#biu_txt");
-    const arr = ['biubiu大神，请赐予我力量吧!', '', '正在寻宝中...biubiubiu~', '先实现一个小目标，biubiubiu~', '', '', '世界那么大，我想biu一biu!', '', '先实现一个小目标，biubiubiu~', '', '', '正在寻宝中...biubiubiu~', '', '', '', '', '世界那么大，我想biu一biu', '', '', '', '', '', '正在寻宝中...biubiubiu~', '', '', '憋说话，biu我', '', '', '正在寻宝中...biubiubiu~', '', '', '', '一起扭着biu一biu！扭着！扭着！', '正在寻宝中...biubiubiu~', 'biubiubiu，鸡鸭鹅狗猫', '', '', '正在寻宝中...biubiubiu~', '福来了，福来了喜天降~', '正在寻宝中...biubiubiu~', '', '', '正在寻宝中...biubiubiu~', '', '', '', '', '别急，深呼吸三秒，给运气充个值~', '正在寻宝中...biubiubiu~', '左手再来一个慢动作，biubiubiu~', '重要的事说三遍：biubiubiu~', '换个姿势继续biu~', '红包哪里逃，biu~', '让我们红尘作伴，biu得潇潇洒洒', 'biu得太腻害了，快快收下我的膝盖', '你不是一个人在biu嘛', '这个biu姿势我给满分', 'biubiu切克闹，福气红包来一套', '五魁首，六六六，biu个福气一起走', '有钱有福，猴嗨森', '满园春色关不住，福气红包biu出来', '', '', '艾玛，红包咋还不来呢', '', '', '世界那么大，我想biu一biu', '', '', '', '', '福来了美，福来了浪啊~', '', '', '', 'biubiubiu~福气满堂', '', '', '福来了肥，福来了烫啊', '', '', '', '感情深一口气，哥俩好分福气', '', '', '', '10.1享福利，biubiubiu~'];
+    const arr = ['biubiu大神，请赐予我力量吧!', '', '正在寻宝中...biubiubiu~', '先实现一个小目标，biubiubiu~', '', '世界那么大，我想biu一biu!', '', '先实现一个小目标，biubiubiu~', '', '', '正在寻宝中...biubiubiu~', '', '', '', '', '世界那么大，我想biu一biu', '', '', '', '', '', '正在寻宝中...biubiubiu~', '', '', '憋说话，biu我', '', '', '正在寻宝中...biubiubiu~', '', '', '', '一起扭着biu一biu！扭着！扭着！', '正在寻宝中...biubiubiu~', 'biubiubiu，鸡鸭鹅狗猫', '', '', '正在寻宝中...biubiubiu~', '福来了，福来了喜天降~', '正在寻宝中...biubiubiu~', '', '', '正在寻宝中...biubiubiu~', '', '', '', '', '别急，深呼吸三秒，给运气充个值~', '正在寻宝中...biubiubiu~', '左手再来一个慢动作，biubiubiu~', '重要的事说三遍：biubiubiu~', '换个姿势继续biu~', '红包哪里逃，biu~', '让我们红尘作伴，biu得潇潇洒洒', 'biu得太腻害了，快快收下我的膝盖', '你不是一个人在biu嘛', '这个biu姿势我给满分', 'biubiu切克闹，福气红包来一套', '五魁首，六六六，biu个福气一起走', '有钱有福，猴嗨森', '满园春色关不住，福气红包biu出来', '', '', '艾玛，红包咋还不来呢', '', '', '世界那么大，我想biu一biu', '', '', '', '', '福来了美，福来了浪啊~', '', '', '', 'biubiubiu~福气满堂', '', '', '福来了肥，福来了烫啊', '', '', '', '感情深一口气，哥俩好分福气', '', '', '', '10.1享福利，biubiubiu~'];
     const length = arr.length;
     var x = null;
-    const audio = [new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3")];
-    const audo2 = [new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3")];
+    const audio = [new Audio("../music5.mp3"), new Audio("../music5.mp3"), new Audio("../music5.mp3"), new Audio("../music5.mp3"), new Audio("../music5.mp3"), new Audio("../music5.mp3"), new Audio("../music5.mp3"), new Audio("../music5.mp3"), new Audio("../music5.mp3"), new Audio("../music5.mp3")];
+
     $('.biu_pay').addClass('scale').css('transform', 'scale(1)');
     function func_main(_x, time) {
         function _func() {
-            $("video").size();
-            var n = parseInt(_x.toString().charAt(_x.toString().length - 1));
-            var m = parseInt(_x.toString().charAt(_x.toString().length - 2));
+            var ln=_x.length;
+            var n = parseInt(_x.charAt(ln - 1));
+            var m = parseInt(_x.charAt(ln - 2));
             if (n === 0) {
-                if (m % 2 === 0) {
-                    audo2[m].play();
+                if ((m + n) % 2 === 0) {
+                    audio[9-n].play();
                 }
                 else audio[n].play();
             }
             else if (n === 1) {
-                if (m % 2 === 0) {
-                    audo2[m].play();
+                if ((m + n) % 2 === 0) {
+                    audio[9-n].play();
                 }
-                else
-                    audio[n].play();
+                else audio[n].play();
             }
             else if (n === 2) {
-                if (m % 2 === 0) {
-                    audo2[m].play();
+                if ((m + n) % 2 === 0) {
+                    audio[9-n].play();
                 }
-                else
-                    audio[n].play();
+                else audio[n].play();
             }
             else if (n === 3) {
-                if (m % 2 === 0) {
-                    audo2[m].play();
+                if ((m + n) % 2 === 0) {
+                    audio[9-n].play();
                 }
-                else
-                    audio[n].play();
+                else audio[n].play();
             }
             else if (n === 4) {
-                if (m % 2 === 0) {
-                    audo2[m].play();
+                if ((m + n) % 2 === 0) {
+                    audio[9-n].play();
                 }
-                else
-                    audio[n].play();
+                else audio[n].play();
             }
             else if (n === 5) {
-                if (m % 2 === 0)
-                    audo2[m].play();
+                if ((m + n) % 2 === 0) {
+                    audio[9-n].play();
+                }
                 else audio[n].play();
             }
             else if (n === 6) {
-                if (m % 2 === 0)
-                    audo2[m].play();
+                if ((m + n) % 2 === 0) {
+                    audio[9-n].play();
+                }
                 else audio[n].play();
             }
             else if (n === 7) {
-                if (m % 2 === 0)
-                    audo2[m].play();
+                if ((m + n) % 2 === 0) {
+                    audio[9-n].play();
+                }
                 else audio[n].play();
             }
             else if (n === 8) {
-                if (m % 2 === 0)
-                    audo2[m].play();
+                if ((m + n) % 2 === 0) {
+                    audio[9-n].play();
+                }
                 else audio[n].play();
             }
             else if (n === 9) {
-                if (m % 2 === 0)
-                    audo2[m].play();
+                if ((m + n) % 2 === 0) {
+                    audio[9-n].play();
+                }
                 else audio[n].play();
             }
-
-//            var temp_audio = new Audio("http://up.izyfarm.com/music5.mp3");
-//            temp_audio.play();
-//            temp_audio = null;
             var num = getNumberInNormalDistribution(100, 10);
             if (num == 88 || num == 90 || num == 95 || num == 99 || num == 100 || num == 102) {
                 var ran = Math.random();
@@ -207,6 +204,9 @@
                 //console.log(c);
             }
             num = null;
+            m = null;
+            n = null;
+            _x = null;
             //console.log(_x);
 
         }
@@ -231,9 +231,11 @@
     $("#posi").click(()=> {
         if(i === 0)
         biuv.html('正在寻宝中...biubiubiu~');
-    x = setTimeout(func_main(i++, x), 0);
+    x = setTimeout(func_main((i++).toString(), x), 0);
     })
-
+//    setInterval(function () {
+//        $("#posi").click();
+//    }, 0)
 </script>
 </body>
 </html>
