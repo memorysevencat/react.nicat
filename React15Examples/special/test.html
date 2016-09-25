@@ -8,14 +8,16 @@
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/fastclick/1.0.6/fastclick.js"></script>
     <script>
+        const hv = $(window).height();
+        const wv = $(window).width();
         $(function () {
             window.addEventListener('load', function () {
                 FastClick.attach(document.body);
             }, false);
-            $("#img1").css({'height': $(window).height() - 1, 'width': $(window).width()});
-            $("#posi").css('left', ($(window).width() - 70) / 2 + 'px');
-            if ($(window).height() > 680) {
-                $("#posi").css('bottom', '270px');
+            $("#img1").css({'height': hv - 1, 'width': wv});
+            $("#posi").css('left', (wv - 70) / 2 + 'px');
+            if (hv > 680) {
+                $("#posi").css('bottom', '300px');
             }
 
         });
@@ -96,12 +98,12 @@
         }
     </style>
 </head>
-<body style="margin:0 auto; overflow: hidden;">
+<body style="margin:0 auto; overflow:hidden;-moz-user-select:none;">
 <div class="container-fluid">
     <img id="img1" src="http://up.izyfarm.com/izyfarm_biu.png" style="z-index:-1"/>
 
     <div style="position:absolute;bottom:200px;left:100px;width:70px;height:70px;" id="posi">
-        <div class='biu_pay'>
+        <div class='biu_pay' id="biu_pay">
             <img src="http://up.izyfarm.com/izyfarm_biu_3.png" width="70px" height="70px"/>
         </div>
         <div id="biu_txt"></div>
@@ -109,40 +111,129 @@
 </div>
 <script type="text/javascript">
     var i = 0;
-    var arr = ['biubiu大神，请赐予我力量吧', '世界那么大，我想biu一biu', '世界那么大，我想biu一biu', '憋说话，biu我', '一起扭着biu一biu！扭着！扭着！', 'biubiubiu，鸡鸭鹅狗猫', '福来了，福来了喜天降', '', '别急，深呼吸三秒，给运气充个值', '左手再来一个慢动作，biubiubiu~', '重要的事说三遍：biubiubiu', '换个姿势继续biu~', '红包哪里逃，biu~', '让我们红尘作伴，biu得潇潇洒洒', 'biu得太腻害了，快快收下我的膝盖', '你不是一个人在biu嘛', '这个biu姿势我给满分', '耶耶切克闹，福气红包来一套', '五魁首，六六六，biu个福气一起走', '有钱有福，猴嗨森', '满园春色关不住，福气红包biu出来', '艾玛，红包咋还不来呢', '世界那么大，我想biu一biu', '福来了美，福来了浪啊~', 'biubiubiu~福气满堂', '福来了肥，福来了烫啊', '感情深一口气，哥俩好分福气', '大王派我来拜年嘞，biubiubiu'];
-    var length = arr.length;
-    function func_main(_x, _this) {
+    const biuv = $("#biu_txt");
+    const arr = ['biubiu大神，请赐予我力量吧!', '', '正在寻宝中...biubiubiu~', '先实现一个小目标，biubiubiu~', '', '', '世界那么大，我想biu一biu!', '', '先实现一个小目标，biubiubiu~', '', '', '正在寻宝中...biubiubiu~', '', '', '', '', '世界那么大，我想biu一biu', '', '', '', '', '', '正在寻宝中...biubiubiu~', '', '', '憋说话，biu我', '', '', '正在寻宝中...biubiubiu~', '', '', '', '一起扭着biu一biu！扭着！扭着！', '正在寻宝中...biubiubiu~', 'biubiubiu，鸡鸭鹅狗猫', '', '', '正在寻宝中...biubiubiu~', '福来了，福来了喜天降~', '正在寻宝中...biubiubiu~', '', '', '正在寻宝中...biubiubiu~', '', '', '', '', '别急，深呼吸三秒，给运气充个值~', '正在寻宝中...biubiubiu~', '左手再来一个慢动作，biubiubiu~', '重要的事说三遍：biubiubiu~', '换个姿势继续biu~', '红包哪里逃，biu~', '让我们红尘作伴，biu得潇潇洒洒', 'biu得太腻害了，快快收下我的膝盖', '你不是一个人在biu嘛', '这个biu姿势我给满分', 'biubiu切克闹，福气红包来一套', '五魁首，六六六，biu个福气一起走', '有钱有福，猴嗨森', '满园春色关不住，福气红包biu出来', '', '', '艾玛，红包咋还不来呢', '', '', '世界那么大，我想biu一biu', '', '', '', '', '福来了美，福来了浪啊~', '', '', '', 'biubiubiu~福气满堂', '', '', '福来了肥，福来了烫啊', '', '', '', '感情深一口气，哥俩好分福气', '', '', '', '10.1享福利，biubiubiu~'];
+    const length = arr.length;
+    var x = null;
+    const audio = [new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3")];
+    const audo2 = [new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3"), new Audio("http://up.izyfarm.com/music5.mp3")];
+    $('.biu_pay').addClass('scale').css('transform', 'scale(1)');
+    function func_main(_x, time) {
         function _func() {
-            _x = null;
-            var temp_audio = new Audio("http://up.izyfarm.com/music5.mp3");
-            temp_audio.play();
-            temp_audio = null;
+            $("video").size();
+            var n = parseInt(_x.toString().charAt(_x.toString().length - 1));
+            var m = parseInt(_x.toString().charAt(_x.toString().length - 2));
+            if (n === 0) {
+                if (m % 2 === 0) {
+                    audo2[m].play();
+                }
+                else audio[n].play();
+            }
+            else if (n === 1) {
+                if (m % 2 === 0) {
+                    audo2[m].play();
+                }
+                else
+                    audio[n].play();
+            }
+            else if (n === 2) {
+                if (m % 2 === 0) {
+                    audo2[m].play();
+                }
+                else
+                    audio[n].play();
+            }
+            else if (n === 3) {
+                if (m % 2 === 0) {
+                    audo2[m].play();
+                }
+                else
+                    audio[n].play();
+            }
+            else if (n === 4) {
+                if (m % 2 === 0) {
+                    audo2[m].play();
+                }
+                else
+                    audio[n].play();
+            }
+            else if (n === 5) {
+                if (m % 2 === 0)
+                    audo2[m].play();
+                else audio[n].play();
+            }
+            else if (n === 6) {
+                if (m % 2 === 0)
+                    audo2[m].play();
+                else audio[n].play();
+            }
+            else if (n === 7) {
+                if (m % 2 === 0)
+                    audo2[m].play();
+                else audio[n].play();
+            }
+            else if (n === 8) {
+                if (m % 2 === 0)
+                    audo2[m].play();
+                else audio[n].play();
+            }
+            else if (n === 9) {
+                if (m % 2 === 0)
+                    audo2[m].play();
+                else audio[n].play();
+            }
+
+//            var temp_audio = new Audio("http://up.izyfarm.com/music5.mp3");
+//            temp_audio.play();
+//            temp_audio = null;
             var num = getNumberInNormalDistribution(100, 10);
-            if (num >= 85 && num <= 105) {
-                var txt = arr[Math.floor(Math.random() * length + 1)];
-                $("#biu_txt").html(txt);
+            if (num == 88 || num == 90 || num == 95 || num == 99 || num == 100 || num == 102) {
+                var ran = Math.random();
+                ran = Math.floor(ran * length + 1);
+                var txt = arr[ran];
+                ran = null;
+                if (txt === '' && num >= 99)
+                    biuv.html('正在寻宝中...biubiubiu~');
+                else if (txt === '' && num < 99)
+                    biuv.html('');
+                else if (txt !== '')
+                    biuv.html(txt);
                 txt = null;
+
+            }
+            else if ((num == 85) || (num == 86) || (num === 120) || (num === 119)) {
+                //chance
+                //console.log(num);
+                //console.log(c);
             }
             num = null;
+            //console.log(_x);
+
         }
 
         return _func;
     }
+
     function getNumberInNormalDistribution(mean, std_dev) {
         return parseInt(mean + (uniform2NormalDistribution() * std_dev));
     }
 
     function uniform2NormalDistribution() {
         var sum = 0.0;
-        for (var i = 0; i < 12; i++) {
-            sum = sum + Math.random();
+        for (let i = 0; i < 12; i++) {
+            var a = Math.random();
+            sum = sum + a;
+            a = null;
         }
         return sum - 6.0;
     }
-    $("#posi").click(function () {
-        i++;
-        setTimeout(func_main(i, $(this)), 0);
-    });
+
+    $("#posi").click(()=> {
+        if(i === 0)
+        biuv.html('正在寻宝中...biubiubiu~');
+    x = setTimeout(func_main(i++, x), 0);
+    })
+
 </script>
 </body>
 </html>
