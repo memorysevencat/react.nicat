@@ -10,6 +10,22 @@
 <body>
 <div id="container"></div>
 <script type="text/babel">
+class SpanOne extends React.Component{
+	componentWillUnmount(){
+		console.log("SpanOne unmount")
+	}
+	render(){
+		return <span>1</span>
+	}
+}
+class SpanTwo extends React.Component{
+	componentWillUnmount(){
+		console.log("SpanTwo unmount")
+	}
+	render(){
+		return <span>2</span>
+	}
+}
 class ChangeSpan extends React.Component{
 	constructor(){
 		super();
@@ -28,7 +44,7 @@ class ChangeSpan extends React.Component{
 		if(!this.state.show)
 		{
 			this.timer=setTimeout(()=>{
-				this.setState({show:true})
+				this.setState({show:true});
 			}.bind(this),2000)
 			
 		}
@@ -36,7 +52,7 @@ class ChangeSpan extends React.Component{
 	render(){
 		const text=this.state.show?"Seven,click to show ur account.":"Seven,$000000."
 		console.log("do");
-		return <span onClick={()=>this.handleClick()}>{text}</span>
+		return <span onClick={()=>this.handleClick()}>{text}{this.state.show?<SpanOne/>:<SpanTwo/>}</span>
 	}
 }
 ReactDOM.render(
