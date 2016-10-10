@@ -1,0 +1,48 @@
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Hello React!</title>
+    <script src="https://unpkg.com/react@15.3.1/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.1/dist/react-dom.min.js"></script>
+    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/babel">
+class ChangeSpan extends React.Component{
+	constructor(){
+		super();
+		this.state={
+			show:true
+		}
+	}
+	handleClick(){
+		this.setState({show:!this.state.show})
+	}
+	componentWillUpdate(){
+		console.log("will");
+	}
+	componentDidUpdate(){
+		console.log("did");
+		if(!this.state.show)
+		{
+			this.timer=setTimeout(()=>{
+				this.setState({show:true})
+			}.bind(this),2000)
+			
+		}
+	}
+	render(){
+		const text=this.state.show?"Seven,click to show ur account.":"Seven,$000000."
+		console.log("do");
+		return <span onClick={()=>this.handleClick()}>{text}</span>
+	}
+}
+ReactDOM.render(
+<ChangeSpan />,
+document.getElementById("container")
+)
+</script>
+</body>
+</html>
