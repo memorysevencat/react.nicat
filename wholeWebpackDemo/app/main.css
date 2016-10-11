@@ -1,0 +1,4 @@
+:global(#root){
+	color: red;
+	transition :transform 1s;
+}
