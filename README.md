@@ -23,3 +23,4 @@
 
 ###### http://www.jianshu.com/p/42e11515c10f#
 ###### http://www.pro-react.com/materials/appendixA/
+###### https://segmentfault.com/a/1190000004208610
